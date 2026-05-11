@@ -537,19 +537,19 @@ def display_samples():
 
 # Widgets for split and dataloader settings (used in the next split/dataloader cells)
 val_split_w = widgets.FloatSlider(
-    value=0.2, min=0.05, max=0.4, step=0.05, description="Val split"
+    value=0.05, min=0.05, max=0.4, step=0.05, description="Val split"
 )
 test_split_w = widgets.FloatSlider(
-    value=0.1, min=0.05, max=0.3, step=0.05, description="Test split"
+    value=0.05, min=0.05, max=0.3, step=0.05, description="Test split"
 )
 batch_w = widgets.IntSlider(
     value=1, min=1, max=64, step=1, description="Batchsize"
 )
 hflip_w = widgets.FloatSlider(
-    value=0.5, min=0.0, max=1.0, step=0.1, description="HFlip"
+    value=0.0, min=0.0, max=1.0, step=0.1, description="HFlip"
 )
 vflip_w = widgets.FloatSlider(
-    value=0.5, min=0.0, max=1.0, step=0.1, description="VFlip"
+    value=0.0, min=0.0, max=1.0, step=0.1, description="VFlip"
 )
 
 dataset_factor_w = widgets.IntSlider(
@@ -812,7 +812,7 @@ def display_transform_example():
 # Widgets for model/training strategy (used in the next model/training cells)
 model_name_w = widgets.Dropdown(
     options=["mobilenet_v2", "resnet18", "efficientnet_b0"],
-    value="mobilenet_v2",
+    value="efficientnet_b0",
     description="Model:",
 )
 
@@ -821,7 +821,7 @@ training_mode_w = widgets.Dropdown(
         ("Feature extraction (freeze backbone)", "feature_extraction"),
         ("Full fine-tuning (train all layers)", "full_finetune"),
     ],
-    value="full_finetune",
+    value="feature_extraction",
     description="Mode:",
 )
 
@@ -840,7 +840,7 @@ sgd_momentum_w = widgets.FloatSlider(
 lr_w = widgets.FloatLogSlider(
     value=1e-4, base=10, min=-6, max=-2, step=0.1, description="LR"
 )
-epochs_w = widgets.IntSlider(value=8, min=1, max=50, step=1, description="Epochs")
+epochs_w = widgets.IntSlider(value=2, min=1, max=50, step=1, description="Epochs")
 
 
 ### end old section; Auswahl des Trainingsmodells und Modifizierung der Parameter.
